@@ -1,9 +1,6 @@
-def minor(matrix, row, col):
-    
+def minor(matrix, row, col):  
     return [row[:col] + row[col + 1:] for row in (matrix[:row] + matrix[row + 1:])]
-
-def determinant(matrix):
-    
+def determinant(matrix):   
     if len(matrix) == 1:
         return matrix[0][0]
     elif len(matrix) == 2:
@@ -15,9 +12,7 @@ def determinant(matrix):
             cofactor = determinant(minor(matrix, 0, col))
             det += sign * matrix[0][col] * cofactor
         return det
-
 def input_matrix():
-   
     rows = int(input("Enter the number of rows: "))
     cols = int(input("Enter the number of columns: "))
     matrix = []
@@ -28,9 +23,7 @@ def input_matrix():
             row.append(value)
         matrix.append(row)
     return matrix
-
 matrix = input_matrix()
-
 if len(matrix) != len(matrix[0]):
     print("Error: Determinant can only be calculated for square matrices.")
 else:
